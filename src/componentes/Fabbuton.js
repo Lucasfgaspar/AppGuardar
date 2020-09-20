@@ -9,7 +9,8 @@ export default class Fabbuton extends Component {
         const toValue = this.open ? 0 : 1
         Animated.spring(this.animation, {
             toValue,
-            friction: 6,            
+            friction: 6, 
+            useNativeDriver: true,           
         }).start();
 
         this.open = !this.open;
@@ -67,8 +68,8 @@ export default class Fabbuton extends Component {
                     </Animated.View>
                 </TouchableWithoutFeedback>
 
-                <TouchableWithoutFeedback onPress={this.pressMenu}>
-                    <Animated.View style={[styles.botao, styles.menu, rotation]}>
+                <TouchableWithoutFeedback onPress={this.pressMenu} >
+                    <Animated.View style={[styles.botao, styles.menu, rotation]} >
                         <Entypo name="menu" size={30} color="#FFF"/>
                     </Animated.View>
                 </TouchableWithoutFeedback>
