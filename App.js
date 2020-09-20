@@ -1,14 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Fabbuton from './src/componentes/Fabbuton';
+import { StyleSheet} from 'react-native';
+import {NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './home/home';
+import Novo from './novo/novo';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Fabbuton 
-        style={{ bottom: 80, right: 60}}
-      />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator >
+        <Stack.Screen name="Objetivos" component={Home}/>
+        <Stack.Screen name="Novo Objetivo" component={Novo}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

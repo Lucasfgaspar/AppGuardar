@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Animated } from 'react-native';
 import {AntDesign, Entypo} from '@expo/vector-icons';
 
+
 export default class Fabbuton extends Component {
+    
     animation = new Animated.Value(0);
 
     pressMenu = () => {
@@ -17,7 +19,7 @@ export default class Fabbuton extends Component {
         
     }
 
-    render(){
+    render(){ 
 
         const homeStyle = {
             transform: [
@@ -48,7 +50,7 @@ export default class Fabbuton extends Component {
                 {
                     rotate: this.animation.interpolate({
                         inputRange: [0, 1],
-                        outputRange: ["0deg", "45deg"]
+                        outputRange: ["0deg", "-90deg"]
                     })
                 }
             ]
@@ -56,7 +58,7 @@ export default class Fabbuton extends Component {
 
         return (
             <View style={[styles.container, this.props.style]}> 
-                <TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress = {() => navigator.navigate('Novo')}>
                     <Animated.View style={[styles.botao, styles.botaoseg, plusStyle]}>
                         <AntDesign name="plus" size={26} color="#FFF"/>
                     </Animated.View>
