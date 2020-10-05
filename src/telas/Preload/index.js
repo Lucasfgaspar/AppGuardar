@@ -1,11 +1,14 @@
 import React from 'react';
 import {Text} from 'react-native';
-import { Container } from './styles';
+import { Container, LoadingIcon } from './styles';
+
 
 export default () => {
+
     return (
         <Container>
-            <Text>Preload</Text>
+            <Text> LOGO </Text>
+            <LoadingIcon size='large' color='#FFFFFF'/>
         </Container>
     );
 }
