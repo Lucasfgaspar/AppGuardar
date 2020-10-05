@@ -1,20 +1,28 @@
 import React from 'react';
 import { StyleSheet} from 'react-native';
-import {NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Home from './home/home';
-import Novo from './novo/novo';
+import {NavigationContainer, TabActions } from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Home from './src/home/Home';
+import Novo from './src/novo/Novo';
+import Finalizados from './src/finalizados/finalizados';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator >
-        <Stack.Screen name="Objetivos" component={Home}/>
-        <Stack.Screen name="Novo Objetivo" component={Novo}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+      <Tab.Navigator 
+        tabBarOptions={{
+          activeTintColor: 'green',
+          inactiveTintColor: 'gray',
+        }}
+      >
+        <Tab.Screen name='Objetivos' component={Home} />
+        <Tab.Screen name='Novo' component={Novo}/>
+        <Tab.Screen name='Finalizados' component={Finalizados}/>
+      </Tab.Navigator>
+    </NavigationContainer>           
   );
 }
 
